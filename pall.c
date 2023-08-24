@@ -2,14 +2,13 @@
 
 void pall(stack_t **stack, unsigned int line_number)
 {
-	int arg = _atoi(argument);
+	stack_t *curr_node;
+	(void)line_number; /* Unused variable */
 
-	if (arg == 0 && strcmp(argument, "0"))
+	curr_node = *stack;
+	while (curr_node != NULL)
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		free_memory();
-		exit(EXIT_FAILURE);
+		printf("%d\n", curr_node->n);
+		curr_node = curr_node->next;
 	}
-
-	(void)stack;
 }

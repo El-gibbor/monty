@@ -49,6 +49,7 @@ void check_usage(int argc);
 FILE *open_file(char *filepath);
 int interpret_line(stack_t **stack);
 int _atoi(const char *str);
+stack_t *create_node(stack_t **head, int n);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void free_memory(void);

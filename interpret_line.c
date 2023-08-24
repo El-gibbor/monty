@@ -23,7 +23,6 @@ int interpret_line(stack_t **stack)
 	if (opcode == NULL)
 		return (EXIT_SUCCESS);
 
-	argument = strtok(NULL, " \t\n");
 	for (i = 0; instruction[i].opcode; i++)
 	{
 		if (strcmp(opcode, instruction[i].opcode) == 0)
