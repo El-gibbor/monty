@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
 	int line_number = 0;
 	size_t line_size = 0;
 	FILE *fd;
+	stack_t *stack = NULL;
 	instruction_t instruction[10];
 
 	/* Check Usage */
@@ -28,7 +29,7 @@ int main(int argc, char *argv[])
 	fd = fopen(filename, "r");
 	if (fd == NULL)
 	{
-		printf("Error: can't open file %s\n", filename);
+		fprintf(stderr, "Error: can't open file %s\n", filename);
 		return (EXIT_FAILURE);
 	}
 
@@ -50,7 +51,7 @@ int main(int argc, char *argv[])
 		}
 		if (instruction[i] == NULL)
 		{
-			printf("L%d: unknown instruction %s\n", line_number, opcode);
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
 			free(line);
 			fclose(fd);
 			return (EXIT_FAILURE);
