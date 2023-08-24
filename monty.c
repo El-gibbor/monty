@@ -1,5 +1,4 @@
 #include "monty.h"
-#include <string.h>
 
 /**
  * main - Entry Point
@@ -10,58 +9,21 @@
  */
 int main(int argc, char *argv[])
 {
-	/* Variable declaration */
-	char *filename, *line = NULL, *opcode, *argument;
-	int line_number = 0;
 	size_t line_size = 0;
-	FILE *fd;
+	stack_t *stack;
 
 	/* Check Usage */
-	if (argc < 2)
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		return (EXIT_FAILURE);
-	}
+	check_usage(argc);
 
 	/* Open the file */
-	filename = argv[1];
-	fd = fopen(filename, "r");
-	if (fd == NULL)
-	{
-		printf("Error: can't open file %s\n", filename);
-		return (EXIT_FAILURE);
-	}
+	fd = open_file(argv[1]);
 
-	while(getline(&line, &line_size, fd) != -1)
-	{
-		/* get the opcode */
-		opcode = strtok(line, " \t\n");
-		if (opcode == NULL)
-			continue;
-
-		/* get opcode function */
-		if (strcmp(opcode, "push") == 0)
-		{
-			argument = strtok(NULL, " \t\n");
-			printf("push\n");
-		}
-		else if (strcmp(opcode, "pall") == 0)
-		{
-			printf("pall\n");
-		}
-		else
-		{
-			printf("L%d: unknown instruction %s\n", line_number, opcode);
-			free(line);
-			fclose(fd);
-			return (EXIT_FAILURE);
-		}
-		line_number++;
-	}
+	/* Interpret the file */
+	while (getline(&line, &line_size, fd) != -1)
+		interpret_line(&stack);
 
 	/* Free memory and close file */
-	free(line);
-	fclose(fd);
+	free_memory();
 
 	return (EXIT_SUCCESS);
 }
