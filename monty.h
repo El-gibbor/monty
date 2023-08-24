@@ -44,6 +44,14 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+struct global_variables
+{
+  char *line;
+  int line_number;
+  FILE *fd;
+};
+extern struct global_variables global;
+
 /* Function Prototypes */
 void check_usage(int argc);
 FILE *open_file(char *filepath);
@@ -51,6 +59,6 @@ int interpret_line(char *line, stack_t **stack);
 int execute_opcode(char *opcode, int arg, stack_t **stack);
 int _atoi(const char *str);
 int push(char *argument);
-void free_memory(char *line, FILE *fd);
+void free_memory();
 
 #endif /* !MONTY_H */

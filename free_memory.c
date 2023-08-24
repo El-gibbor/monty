@@ -1,8 +1,8 @@
 #include "monty.h"
 #include <stdlib.h>
 
-void free_memory(char *line, FILE *fd)
+void free_memory(void)
 {
-	free(line);
-	fclose(fd);
+	free(global.line);
+	fclose(global.fd);
 }
