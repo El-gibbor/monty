@@ -17,6 +17,9 @@
 /* Function Prototypes */
 int _atoi(const char *str);
 int push(char *argument);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void (*get_op_func(char *op_token))(stack_t **stack, unsigned int line_number);
 
 /* Global variables */
 extern int line_number;
@@ -33,7 +36,7 @@ extern int line_number;
 typedef struct stack_s
 {
 	int n;
-		struct stack_s *prev;
+	struct stack_s *prev;
 	struct stack_s *next;
 } stack_t;
 
