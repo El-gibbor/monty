@@ -9,19 +9,19 @@
  */
 int main(int argc, char *argv[])
 {
-	char *line;
-	size_t line_size;
-	stack_t *stack;
+	size_t line_size = 0;
+
+	line = NULL;
 
 	/* Check Usage */
 	check_usage(argc);
 
 	/* Open the file */
-	global.fd = open_file(argv[1]);
+	fd = open_file(argv[1]);
 
 	/* Interpret the file */
-	while (getline(&line, &line_size, global.fd))
-		interpret_line(line, &stack);
+	while (getline(&line, &line_size, fd))
+		interpret_line();
 
 	/* Free memory and close file */
 	free_memory();
