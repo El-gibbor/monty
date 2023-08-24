@@ -2,7 +2,7 @@
 
 /**
 * interpret_line - Inteprets the line
-*
+*@stack: The head of the doubly linked list
 * Return: EXIT_SUCCESS on success, and EXIT_FAILURE on failure
 */
 int interpret_line(stack_t **stack)

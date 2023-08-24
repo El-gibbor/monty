@@ -3,6 +3,7 @@
 /**
  * create_node - Creates a new node for a doubly linked list
  * @head: The head of the doubly linked list
+ * @n: The value of the new node
  * Return: The address of the new node, or NULL if it failed
 */
 stack_t *create_node(stack_t **head, int n)
