@@ -35,7 +35,7 @@ void push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-    
+
 	value = atoi(op_arg);
 	if (value == 0 && strcmp(op_arg, "0") != 0)
 	{
