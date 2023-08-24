@@ -1,6 +1,10 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif /* !_GNU_SOURCE */
+
 /* Header Files */
 #include <stdio.h>
 #include <string.h>
@@ -9,6 +13,13 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+
+/* Function Prototypes */
+int _atoi(const char *str);
+int push(char *argument);
+
+/* Global variables */
+extern int line_number;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)

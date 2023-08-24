@@ -1,5 +1,4 @@
 #include "monty.h"
-#include <string.h>
 
 /**
  * main - Entry Point
@@ -43,7 +42,7 @@ int main(int argc, char *argv[])
 		if (strcmp(opcode, "push") == 0)
 		{
 			argument = strtok(NULL, " \t\n");
-			printf("push\n");
+			push(argument);
 		}
 		else if (strcmp(opcode, "pall") == 0)
 		{
