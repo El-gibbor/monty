@@ -10,12 +10,11 @@
 int main(int argc, char *argv[])
 {
 	/* Variable declaration */
-	char *filename, *line = NULL, *opcode, *argument;
+	char *filename, *line = NULL, *opcode;
 	int line_number = 0;
 	size_t line_size = 0;
 	FILE *fd;
 	stack_t *stack = NULL;
-	instruction_t instruction[10];
 
 	/* Check Usage */
 	if (argc < 2)
@@ -33,35 +32,28 @@ int main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	}
 
-	while(getline(&line, &line_size, fd) != -1)
+	while (getline(&line, &line_size, fd) != -1)
 	{
 		/* get the opcode */
 		opcode = strtok(line, " \t\n");
 		if (opcode == NULL)
 			continue;
-
-		argument = strtok(NULL, " \t\n");
-		for(i = 0; instruction[i]; i++)
-		{
-			if (strcmp(opcode, instruction[i].opcode) == 0)
-			{
-				instruction[i].f(&stack, argument);
-				break;
-			}
-		}
-		if (instruction[i] == NULL)
+	
+		get_op_func(opcode)(&stack, line_number);
+/*
+		if (get_op_func == NULL)
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
 			free(line);
 			fclose(fd);
 			return (EXIT_FAILURE);
 		}
+*/
 		line_number++;
 	}
 
 	/* Free memory and close file */
 	free(line);
 	fclose(fd);
-
 	return (EXIT_SUCCESS);
 }
