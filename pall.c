@@ -7,6 +7,7 @@ void pall(stack_t **stack, unsigned int line_number)
 	if (arg == 0 && strcmp(argument, "0"))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		free_memory();
 		exit(EXIT_FAILURE);
 	}
 
