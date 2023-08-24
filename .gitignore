@@ -1,0 +1,13 @@
+# Git Ignore
+#.gitignore
+
+# Executables
+.out
+.o
+.exe
+#monty
+test
+
+# Backup files
+.swp
+.bak
