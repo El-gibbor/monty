@@ -39,6 +39,11 @@ int main(int argc, char *argv[])
 		{
 			opcode = strtok(line, " \t\n");
 
+			if (opcode == NULL)
+			{
+				continue;
+			}
+
 			if (strcmp(opcode, "push") == 0)
 			{
 				printf("push\n");
