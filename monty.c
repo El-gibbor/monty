@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
 	int line_number = 0;
 	size_t line_size = 0;
 	FILE *fd;
+	instruction_t instruction[10];
 
 	/* Check Usage */
 	if (argc < 2)
@@ -38,17 +39,16 @@ int main(int argc, char *argv[])
 		if (opcode == NULL)
 			continue;
 
-		/* get opcode function */
-		if (strcmp(opcode, "push") == 0)
+		argument = strtok(NULL, " \t\n");
+		for(i = 0; instruction[i]; i++)
 		{
-			argument = strtok(NULL, " \t\n");
-			push(argument);
+			if (strcmp(opcode, instruction[i].opcode) == 0)
+			{
+				instruction[i].f(&stack, argument);
+				break;
+			}
 		}
-		else if (strcmp(opcode, "pall") == 0)
-		{
-			printf("pall\n");
-		}
-		else
+		if (instruction[i] == NULL)
 		{
 			printf("L%d: unknown instruction %s\n", line_number, opcode);
 			free(line);
