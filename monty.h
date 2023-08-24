@@ -14,13 +14,6 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-/* Function Prototypes */
-int _atoi(const char *str);
-int push(char *argument);
-
-/* Global variables */
-extern int line_number;
-
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -50,5 +43,14 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/* Function Prototypes */
+void check_usage(int argc);
+FILE *open_file(char *filepath);
+int interpret_line(char *line, stack_t **stack);
+int execute_opcode(char *opcode, int arg, stack_t **stack);
+int _atoi(const char *str);
+int push(char *argument);
+void free_memory(char *line, FILE *fd);
 
 #endif /* !MONTY_H */
