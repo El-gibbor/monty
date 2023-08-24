@@ -10,8 +10,7 @@
 int main(int argc, char *argv[])
 {
 	size_t line_size = 0;
-
-	line = NULL;
+	stack_t *stack;
 
 	/* Check Usage */
 	check_usage(argc);
@@ -20,8 +19,8 @@ int main(int argc, char *argv[])
 	fd = open_file(argv[1]);
 
 	/* Interpret the file */
-	while (getline(&line, &line_size, fd))
-		interpret_line();
+	while (getline(&line, &line_size, fd) != -1)
+		interpret_line(&stack);
 
 	/* Free memory and close file */
 	free_memory();

@@ -3,8 +3,6 @@
 
 FILE *open_file(char *filepath)
 {
-	FILE *fd;
-
 	fd = fopen(filepath, "r");
 	if (fd == NULL)
 	{

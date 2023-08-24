@@ -5,12 +5,11 @@
 *
 * Return: EXIT_SUCCESS on success, and EXIT_FAILURE on failure
 */
-int interpret_line(void)
+int interpret_line(stack_t **stack)
 {
 	int i;
 	char *opcode;
 	static int line_number = -1;
-	static stack_t *stack;
 
 	instruction_t instruction[] = {
 		{"push", push},
@@ -29,7 +28,7 @@ int interpret_line(void)
 	{
 		if (strcmp(opcode, instruction[i].opcode) == 0)
 		{
-			instruction[i].f(&stack, line_number);
+			instruction[i].f(stack, line_number);
 			return (EXIT_SUCCESS);
 		}
 	}

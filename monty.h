@@ -47,7 +47,7 @@ typedef struct instruction_s
 /* Function Prototypes */
 void check_usage(int argc);
 FILE *open_file(char *filepath);
-int interpret_line(void);
+int interpret_line(stack_t **stack);
 int _atoi(const char *str);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
