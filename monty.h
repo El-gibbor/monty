@@ -14,13 +14,6 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-/* Function Prototypes */
-int _atoi(const char *str);
-int push(char *argument);
-void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number);
-void (*get_op_func(char *op_token))(stack_t **stack, unsigned int line_number);
-
 /* Global variables */
 extern int line_number;
 
@@ -53,5 +46,12 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/* Function Prototypes */
+int _atoi(const char *str);
+stack_t *create_node(stack_t **head, int n);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void (*get_op_func(char *op_token))(stack_t **stack, unsigned int line_number);
 
 #endif /* !MONTY_H */
