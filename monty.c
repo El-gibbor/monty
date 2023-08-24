@@ -9,56 +9,57 @@
  */
 int main(int argc, char *argv[])
 {
-	char *line = NULL, *opcode;
-	int n = 1, line_number = 0;
+	/* Variable declaration */
+	char *filename, *line = NULL, *opcode;
+	int line_number = 0;
 	size_t line_size = 0;
 	FILE *fd;
 
-	if (argc <= 1)
+	/* Check Usage */
+	if (argc < 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
 	}
 
-	while (argv[n])
+	/* Open the file */
+	filename = argv[1];
+	fd = fopen(filename, "r");
+	if (fd == NULL)
 	{
-		fd = fopen(argv[n], "r");
-		if (fd == NULL)
+		printf("Error: can't open file %s\n", filename);
+		return (EXIT_FAILURE);
+	}
+
+	while(getline(&line, &line_size, fd) != -1)
+	{
+		/* get the opcode */
+		opcode = strtok(line, " \t\n");
+		if (opcode == NULL)
+			continue;
+
+		/* get opcode function */
+		if (strcmp(opcode, "push") == 0)
 		{
-			printf("Error: can't open file %s\n", argv[n]);
+			printf("push\n");
+		}
+		else if (strcmp(opcode, "pall") == 0)
+		{
+			printf("pall\n");
+		}
+		else
+		{
+			printf("L%d: unknown instruction %s\n", line_number, opcode);
+			free(line);
+			fclose(fd);
 			return (EXIT_FAILURE);
 		}
-
-		while(getline(&line, &line_size, fd) != -1)
-		{
-			opcode = strtok(line, " \t\n");
-
-			if (opcode == NULL)
-			{
-				continue;
-			}
-
-			if (strcmp(opcode, "push") == 0)
-			{
-				printf("push\n");
-			}
-			else if (strcmp(opcode, "pall") == 0)
-			{
-				printf("pall\n");
-			}
-			else
-			{
-				printf("L%d: unknown instruction %s\n", line_number, opcode);
-				free(line);
-				fclose(fd);
-				return (EXIT_FAILURE);
-			}
-			line_number++;
-		}
-		free(line);
-		fclose(fd);
-		n++;
+		line_number++;
 	}
+
+	/* Free memory and close file */
+	free(line);
+	fclose(fd);
 
 	return (EXIT_SUCCESS);
 }
