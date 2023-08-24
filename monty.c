@@ -1,4 +1,5 @@
 #include "monty.h"
+#include <string.h>
 
 /**
  * main - Entry Point
@@ -10,7 +11,7 @@
 int main(int argc, char *argv[])
 {
 	/* Variable declaration */
-	char *filename, *line = NULL, *opcode;
+	char *filename, *line = NULL, *opcode, *argument;
 	int line_number = 0;
 	size_t line_size = 0;
 	FILE *fd;
@@ -41,6 +42,7 @@ int main(int argc, char *argv[])
 		/* get opcode function */
 		if (strcmp(opcode, "push") == 0)
 		{
+			argument = strtok(NULL, " \t\n");
 			printf("push\n");
 		}
 		else if (strcmp(opcode, "pall") == 0)
