@@ -50,11 +50,14 @@ int main(int argc, char *argv[])
 			else
 			{
 				printf("L%d: unknown instruction %s\n", line_number, opcode);
+				free(line);
+				fclose(fd);
 				return (EXIT_FAILURE);
 			}
-			free(line);
 			line_number++;
 		}
+		free(line);
+		fclose(fd);
 		n++;
 	}
 
