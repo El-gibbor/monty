@@ -12,7 +12,7 @@ int interpret_line(void)
 	static int line_number = -1;
 	static stack_t *stack;
 
-	instruction_t instruction[10] = {
+	instruction_t instruction[] = {
 		{"push", push},
 		{"pall", pall},
 		{NULL, NULL}
