@@ -19,21 +19,21 @@ void push(stack_t **stack, unsigned int line_number)
 	stack_t *new_node;
 
 	char *op_arg = strtok(NULL, " \t\n");
+
 	if (op_arg == NULL)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-
+    
 	value = atoi(op_arg);
-
 	if (value == 0 && strcmp(op_arg, "0") != 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	new_node = create_node(stack, value);
 
+	new_node = create_node(stack, value);
 	if (*stack != NULL)
 	{
 		new_node->next = *stack;
@@ -44,14 +44,13 @@ void push(stack_t **stack, unsigned int line_number)
 
 void pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *current;
-
+	stack_t *curr_node;
 	(void)line_number; /* Unused variable */
 
-	current = *stack;
-	while (current != NULL)
+	curr_node = *stack;
+	while (curr_node != NULL)
 	{
-		printf("%d\n", current->n);
-		current = current->next;
+		printf("%d\n", curr_node->n);
+		curr_node = curr_node->next;
 	}
 }
