@@ -52,7 +52,7 @@ int _atoi(const char *str);
 stack_t *create_node(stack_t **head, int n);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
-void free_memory(void);
+void free_memory(stack_t **stack);
 
 extern char *line, *argument;
 extern FILE *fd;

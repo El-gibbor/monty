@@ -7,7 +7,7 @@ FILE *open_file(char *filepath)
 	if (fd == NULL)
 	{
 		fprintf(stderr, "Error: can't open file %s\n", filepath);
-		free_memory();
+		free_memory(NULL);
 		exit(EXIT_FAILURE);
 	}
 	return (fd);

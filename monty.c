@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 		interpret_line(&stack);
 
 	/* Free memory and close file */
-	free_memory();
+	free_memory(&stack);
 
 	return (EXIT_SUCCESS);
 }

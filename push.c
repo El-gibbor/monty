@@ -16,7 +16,7 @@ void push(stack_t **stack, unsigned int line_number)
 	if (op_arg == NULL || (value == 0 && strcmp(op_arg, "0") != 0))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		free_memory();
+		free_memory(stack);
 		exit(EXIT_FAILURE);
 	}
 

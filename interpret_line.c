@@ -33,6 +33,6 @@ int interpret_line(stack_t **stack)
 		}
 	}
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
-	free_memory();
+	free_memory(stack);
 	exit(EXIT_FAILURE);
 }
