@@ -15,6 +15,7 @@ int interpret_line(stack_t **stack)
 	instruction_t instruction[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{"nop", NULL},
 		{NULL, NULL}
 	};

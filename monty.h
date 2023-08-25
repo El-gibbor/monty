@@ -59,13 +59,15 @@ typedef struct global_variables
 
 /* Function Prototypes */
 void check_usage(int argc);
-void open_file(char *filepath);
-int interpret_line(stack_t **stack);
 int _atoi(const char *str);
-stack_t *create_node(stack_t **head, int n);
-void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number);
+void open_file(char *filepath);
 void free_memory(stack_t **stack);
+int interpret_line(stack_t **stack);
+stack_t *create_node(stack_t **head, int n);
+void pop(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
 
 /* GLOBAL VARIABLES */
 extern global_var global;
