@@ -13,12 +13,12 @@ int interpret_line(stack_t **stack)
 	static int line_number;
 
 	instruction_t instruction[] = {
+		{"nop", nop},
+		{"pop", pop},
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
-		{"pop", pop},
 		{"swap", swap},
-		{"nop", NULL},
 		{NULL, NULL}
 	};
 	line_number++;
