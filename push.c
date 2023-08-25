@@ -11,14 +11,20 @@ void push(stack_t **stack, unsigned int line_number)
 	stack_t *new_node;
 	char *op_arg = strtok(NULL, " \t\n");
 
-	value = _atoi(op_arg);
-	if (op_arg == NULL || (value == 0 && op_arg[0] != '-'))
+	if (op_arg == NULL)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_memory(stack);
 		exit(EXIT_FAILURE);
 	}
 
+	value = _atoi(op_arg);
+	if (value == 0 && (strcmp(op_arg, "0") != 0 && strcmp(op_arg, "-0") != 0))
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		free_memory(stack);
+		exit(EXIT_FAILURE);
+	}
 	new_node = create_node(stack, value);
 	if (*stack != NULL)
 	{
