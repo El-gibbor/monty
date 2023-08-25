@@ -10,7 +10,7 @@ void open_file(char *filepath)
 	global.fd = fopen(filepath, "r");
 	if (global.fd == NULL)
 	{
-		fprintf(stderr, "Error: can't open file %s\n", filepath);
+		fprintf(stderr, "Error: Can't open file %s\n", filepath);
 		exit(EXIT_FAILURE);
 	}
 }
