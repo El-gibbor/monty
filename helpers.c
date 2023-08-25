@@ -19,7 +19,7 @@ int interpret_line(stack_t **stack)
 		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
-		{"nop", NULL},
+		{"nop", nop},
 		{NULL, NULL}
 	};
 	line_number++;
