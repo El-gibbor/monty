@@ -12,7 +12,7 @@ int _atoi(const char *str)
 	int sign = 1;
 
 	if (str == NULL)
-		return 0;
+		return (0);
 
 	if (*str == '-')
 	{
