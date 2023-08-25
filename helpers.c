@@ -24,6 +24,7 @@ int interpret_line(stack_t **stack)
 		{"div", _div},
 		{"mul", mul},
 		{"mod", mod},
+		{"#", nop},
 		{NULL, NULL}
 	};
 	line_number++;
