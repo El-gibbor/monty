@@ -2,13 +2,16 @@
 #.gitignore
 
 # Executables
-.out
-.o
-.exe
+*.out
+*.o
+*.exe
 monty
-#monty
 test
 
 # Backup files
-.swp
-.bak
+*.swp
+*.bak
+
+test_suite/*
+*.sh
+*.bash
