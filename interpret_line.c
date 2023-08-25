@@ -10,7 +10,7 @@ int interpret_line(stack_t **stack)
 {
 	int i;
 	char *opcode;
-	static int line_number = 0;
+	static int line_number;
 
 	instruction_t instruction[] = {
 		{"push", push},
@@ -18,7 +18,6 @@ int interpret_line(stack_t **stack)
 		{"nop", NULL},
 		{NULL, NULL}
 	};
-
 	line_number++;
 
 	opcode = strtok(global.line, " \t\n");
