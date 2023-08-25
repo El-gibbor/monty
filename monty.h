@@ -54,7 +54,7 @@ void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void free_memory(void);
 
-char *line, *argument;
-FILE *fd;
+extern char *line, *argument;
+extern FILE *fd;
 
 #endif /* !MONTY_H */

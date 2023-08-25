@@ -1,5 +1,9 @@
 #include "monty.h"
 
+void globe(void);
+char *line;
+FILE *fd;
+
 /**
  * main - Entry Point
  * @argc: argument count
@@ -10,7 +14,7 @@
 int main(int argc, char *argv[])
 {
 	size_t line_size = 0;
-	stack_t *stack;
+	stack_t *stack = NULL;
 
 	/* Check Usage */
 	check_usage(argc);

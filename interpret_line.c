@@ -1,10 +1,11 @@
 #include "monty.h"
 
 /**
-* interpret_line - Inteprets the line
-*
-* Return: EXIT_SUCCESS on success, and EXIT_FAILURE on failure
-*/
+ * interpret_line - Interprets the line and executes corresponding opcodes.
+ * @stack: Pointer to the top of the stack.
+ *
+ * Return: EXIT_SUCCESS on success, and EXIT_FAILURE on failure.
+ */
 int interpret_line(stack_t **stack)
 {
 	int i;
