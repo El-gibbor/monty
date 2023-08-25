@@ -7,7 +7,8 @@ if [ $# -eq 0 ]; then
     for task_dir in *; do
         if [ -d "$task_dir" ]; then
             cd "$task_dir"
-            ./runchecker.sh
+            ./runchecker.bash
+            sleep 2
             cd ..
         fi
     done
@@ -17,7 +18,8 @@ else
         task_dir="task_$task_number"
         if [ -d "$task_dir" ]; then
             cd "$task_dir"
-            ./runchecker.sh
+            ./runchecker.bash
+            sleep 2
             cd ..
         else
             echo "Task directory $task_dir not found"
@@ -25,3 +27,4 @@ else
     done
 fi
 
+cd ..
