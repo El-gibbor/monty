@@ -30,7 +30,10 @@ if [ "$program_output" == "$expected_result" ]; then
     echo -e "${GREEN}Mafanikio${NC}"
 else
     echo -e "${RED}Kushindwa${NC}"
-    echo "Got:
+    echo "MontyBytes:
+$montyBytes
+
+Got:
 $program_output
 expected:
 $expected_result"
