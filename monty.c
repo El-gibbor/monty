@@ -1,8 +1,7 @@
 #include "monty.h"
 
-void globe(void);
-char *line;
-FILE *fd;
+void prototype_to_hide_global_variables(void);
+global_var global;
 
 /**
  * main - Entry Point
@@ -20,10 +19,10 @@ int main(int argc, char *argv[])
 	check_usage(argc);
 
 	/* Open the file */
-	fd = open_file(argv[1]);
+	open_file(argv[1]);
 
 	/* Interpret the file */
-	while (getline(&line, &line_size, fd) != -1)
+	while (getline(&global.line, &line_size, global.fd) != -1)
 		interpret_line(&stack);
 
 	/* Free memory and close file */

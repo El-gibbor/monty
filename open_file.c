@@ -1,14 +1,17 @@
 #include "monty.h"
 #include <stdio.h>
 
-FILE *open_file(char *filepath)
+/**
+ * open_file - A fucntion thar opens a files path for read
+ * @filepath: path to the file to read
+ */
+void open_file(char *filepath)
 {
-	fd = fopen(filepath, "r");
-	if (fd == NULL)
+	global.fd = fopen(filepath, "r");
+	if (global.fd == NULL)
 	{
 		fprintf(stderr, "Error: can't open file %s\n", filepath);
 		free_memory(NULL);
 		exit(EXIT_FAILURE);
 	}
-	return (fd);
 }

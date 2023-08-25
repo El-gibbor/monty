@@ -44,9 +44,22 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct global_variables - Global variables
+ * @line: line read by getline
+ * @fd: file descriptor of opened file
+ *
+ * Description: Creates a struct to hold global variables
+ */
+typedef struct global_variables
+{
+	char *line;
+	FILE *fd;
+} global_var;
+
 /* Function Prototypes */
 void check_usage(int argc);
-FILE *open_file(char *filepath);
+void open_file(char *filepath);
 int interpret_line(stack_t **stack);
 int _atoi(const char *str);
 stack_t *create_node(stack_t **head, int n);
@@ -54,7 +67,7 @@ void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void free_memory(stack_t **stack);
 
-extern char *line, *argument;
-extern FILE *fd;
+/* GLOBAL VARIABLES */
+extern global_var global;
 
 #endif /* !MONTY_H */

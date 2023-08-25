@@ -18,6 +18,6 @@ void free_memory(stack_t **stack)
 	}
 
 	*stack = NULL;
-	free(line);
-	fclose(fd);
+	free(global.line);
+	fclose(global.fd);
 }

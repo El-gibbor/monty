@@ -15,12 +15,13 @@ int interpret_line(stack_t **stack)
 	instruction_t instruction[] = {
 		{"push", push},
 		{"pall", pall},
+		{"nop", NULL},
 		{NULL, NULL}
 	};
 
 	line_number++;
 
-	opcode = strtok(line, " \t\n");
+	opcode = strtok(global.line, " \t\n");
 	if (opcode == NULL)
 		return (EXIT_SUCCESS);
 
