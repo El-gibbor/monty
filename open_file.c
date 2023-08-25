@@ -11,7 +11,6 @@ void open_file(char *filepath)
 	if (global.fd == NULL)
 	{
 		fprintf(stderr, "Error: can't open file %s\n", filepath);
-		free_memory(NULL);
 		exit(EXIT_FAILURE);
 	}
 }

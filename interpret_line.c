@@ -10,7 +10,7 @@ int interpret_line(stack_t **stack)
 {
 	int i;
 	char *opcode;
-	static int line_number = -1;
+	static int line_number = 0;
 
 	instruction_t instruction[] = {
 		{"push", push},
