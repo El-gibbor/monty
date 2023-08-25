@@ -7,6 +7,6 @@
  */
 void nop(stack_t **stack, unsigned int line_number)
 {
-    (void)stack;  /* Unused variable */
-    (void)line_number;  /* Unused variable */
+	(void)stack;  /* Unused variable */
+	(void)line_number;  /* Unused variable */
 }
