@@ -73,7 +73,7 @@ void _div(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * mul - Adds the top two elements of the stack.
+ * mul - multiplies the top two elements of the stack.
  * @stack: Pointer to the top of the stack.
  * @line_number: Current line number in the file.
  */
