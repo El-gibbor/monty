@@ -8,8 +8,7 @@
  */
 int _atoi(const char *str)
 {
-	int result = 0;
-	int sign = 1;
+	int result = 0, sign = 1;
 
 	if (str == NULL)
 		return (0);
@@ -19,7 +18,6 @@ int _atoi(const char *str)
 		sign = -1;
 		str++;
 	}
-
 	while (*str != '\0')
 	{
 		if (*str < '0' || *str > '9')
@@ -28,7 +26,6 @@ int _atoi(const char *str)
 		result = result * 10 + (*str - '0');
 		str++;
 	}
-
 	return (sign * result);
 }
 
