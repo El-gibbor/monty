@@ -33,6 +33,9 @@ int interpret_line(stack_t **stack)
 	if (opcode == NULL)
 		return (EXIT_SUCCESS);
 
+	if (*opcode == '#')
+		opcode = "#";
+
 	for (i = 0; instruction[i].opcode; i++)
 	{
 		if (strcmp(opcode, instruction[i].opcode) == 0)
