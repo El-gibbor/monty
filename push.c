@@ -9,11 +9,9 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	int value;
 	stack_t *new_node;
-
 	char *op_arg = strtok(NULL, " \t\n");
 
-	if (op_arg)
-		value = _atoi(op_arg);
+	value = _atoi(op_arg);
 	if (op_arg == NULL || (value == 0 && strcmp(op_arg, "0") != 0))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);

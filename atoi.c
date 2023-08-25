@@ -11,6 +11,9 @@ int _atoi(const char *str)
 	int result = 0;
 	int sign = 1;
 
+	if (str == NULL)
+		return 0;
+
 	if (*str == '-')
 	{
 		sign = -1;
