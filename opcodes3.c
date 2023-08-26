@@ -1,4 +1,5 @@
 #include "monty.h"
+#include <stdio.h>
 
 /**
  * mod - remainder of the second top element by the top element of the stack.
@@ -59,7 +60,8 @@ void pstr(stack_t **stack, unsigned int line_number)
 
 	while (curr_node != NULL && curr_node->n > 0 && curr_node->n <= 127)
 	{
-		printf("%c\n", (curr_node)->n);
+		printf("%c", (curr_node)->n);
 		curr_node = curr_node->next;
 	}
+	printf("\n");
 }
