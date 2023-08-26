@@ -1,9 +1,7 @@
 queue
 push 1
 push 2
-rotl
 push 3
-rotl
 pall
 stack
 push 4

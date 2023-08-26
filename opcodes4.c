@@ -1,6 +1,6 @@
 #include "monty.h"
 
-void stack(stack_t **stack, unsigned int line_number)
+void _stack(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;

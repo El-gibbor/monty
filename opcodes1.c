@@ -26,6 +26,8 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 	*stack = new_node;
 
+	if (global.mode == 1 && (*stack)->next != NULL)
+		rotl(stack, line_number);
 }
 
 /**

@@ -24,8 +24,8 @@ int interpret_line(stack_t **stack)
 		{"pstr", pstr},
 		{"rotl", rotl},
 		{"rotr", rotr},
-		{"stack", rotr},
-		{"queue", rotr},
+		{"stack", _stack},
+		{"queue", queue},
 		{NULL, NULL}
 	};
 
