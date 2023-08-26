@@ -80,14 +80,41 @@ void rotl(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL || (*stack)->next == NULL)
 		return;
 
-	/* get to the last node of the stack */
-	while (last->next != NULL)
+	while (last->next != NULL)	/* Traverse to the last node */
 		last = last->next;
 
-	last->next = *stack; /* link the top of the stack to the last node */
+	last->next = *stack;		/* link the top of the stack to bottom of last node */
 	(*stack)->prev = last;
 
-	*stack = (*stack)->next; /* update the stack to pop off top node */
-	last->next->next = NULL; /* discontinue the list after the newly added node */
+	*stack = (*stack)->next;	  /* Update the stack pointer to stack next */
+
+	(*stack)->prev->next = NULL;  /* Disconnect the Loop to get the new list */
+	(*stack)->prev = NULL;
+}
+
+/**
+ * rotr - Rotates the stack to the bottom.
+ * @stack: Pointer to the top of the stack.
+ * @line_number: Current line number in the file.
+ */
+void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *last = *stack; /* clone of the stack */
+
+	(void)line_number; /* unused parameter */
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
+
+	while (last->next != NULL)	/* Traverse to the last node */
+		last = last->next;
+
+	last->next = *stack;		/* link the top of the stack to bottom of last node */
+	(*stack)->prev = last;
+
+	*stack = (*stack)->prev;	  /* Update the stack pointer to stack prev */
+
+	(*stack)->prev->next = NULL;  /* Disconnect the Loop to get the new list */
+	(*stack)->prev = NULL;
 }
 

@@ -27,6 +27,7 @@ int interpret_line(stack_t **stack)
 		{"pchar", pchar},
 		{"pstr", pstr},
 		{"rotl", rotl},
+		{"rotr", rotr},
 		{NULL, NULL}
 	};
 	line_number++;
