@@ -45,6 +45,7 @@ int execute_instruction(stack_t **stack, instruction_t *instruction)
 
 	line_number++;
 
+	opcode = strtok(global.line, " \t\n");
 	if (opcode == NULL)
 		return (EXIT_SUCCESS);
 
