@@ -63,6 +63,7 @@ int _atoi(const char *str);
 void open_file(char *filepath);
 void free_memory(stack_t **stack);
 int interpret_line(stack_t **stack);
+int execute_instruction(stack_t **stack, instruction_t *instruction);
 stack_t *create_node(stack_t **head, int n);
 void pop(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);

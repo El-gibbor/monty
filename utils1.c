@@ -8,10 +8,6 @@
  */
 int interpret_line(stack_t **stack)
 {
-	int i;
-	char *opcode;
-	static unsigned int line_number;
-
 	instruction_t instruction[] = {
 		{"push", push},
 		{"pall", pall},
@@ -30,7 +26,22 @@ int interpret_line(stack_t **stack)
 		{"rotr", rotr},
 		{NULL, NULL}
 	};
-	line_number++;
+
+	return (execute_instruction(stack, instruction));
+}
+
+/**
+ * execute_instruction - Executes the instruction on each line
+ * @stack: Pointer to the top of the stack.
+ * @instruction: Array of the predefined instructions
+ *
+ * Return: Return EXIT_SUCCESS on success and EXIT_FAILURE on failure
+ */
+int execute_instruction(stack_t **stack, instruction_t *instruction)
+{
+	int i;
+	char *opcode;
+	static unsigned int line_number;
 
 	opcode = strtok(global.line, " \t\n");
 	if (opcode == NULL)
@@ -50,27 +61,6 @@ int interpret_line(stack_t **stack)
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
 	free_memory(stack);
 	exit(EXIT_FAILURE);
-}
-
-/**
- * free_memory - Frees allocated memory and closes files.
- *
- * @stack: The stack
- */
-void free_memory(stack_t **stack)
-{
-	stack_t *current = *stack;
-	stack_t *next_node;
-
-	while (current != NULL)
-	{
-		next_node = current->next;
-		free(current);
-		current = next_node;
-	}
-	*stack = NULL;
-	free(global.line);
-	fclose(global.fd);
 }
 
 /**
@@ -101,30 +91,22 @@ void open_file(char *filepath)
 }
 
 /**
- * _atoi -  a function that converts a string to integers
- * @str: the string to be converted
+ * free_memory - Frees allocated memory and closes files.
  *
- * Return: the resulting integer, if error return 0
+ * @stack: The stack
  */
-int _atoi(const char *str)
+void free_memory(stack_t **stack)
 {
-	int result = 0, sign = 1;
+	stack_t *current = *stack;
+	stack_t *next_node;
 
-	if (str == NULL)
-		return (0);
-
-	if (*str == '-')
+	while (current != NULL)
 	{
-		sign = -1;
-		str++;
+		next_node = current->next;
+		free(current);
+		current = next_node;
 	}
-	while (*str != '\0')
-	{
-		if (*str < '0' || *str > '9')
-			return (0);
-
-		result = result * 10 + (*str - '0');
-		str++;
-	}
-	return (sign * result);
+	*stack = NULL;
+	free(global.line);
+	fclose(global.fd);
 }
