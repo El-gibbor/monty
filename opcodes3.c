@@ -65,3 +65,29 @@ void pstr(stack_t **stack, unsigned int line_number)
 	}
 	printf("\n");
 }
+
+/**
+ * rotl - Rotates the stack to the top.
+ * @stack: Pointer to the top of the stack.
+ * @line_number: Current line number in the file.
+ */
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *last = *stack; /* clone of the stack */
+
+	(void)line_number; /* unused parameter */
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
+
+	/* get to the last node of the stack */
+	while (last->next != NULL)
+		last = last->next;
+
+	last->next = *stack; /* link the top of the stack to the last node */
+	(*stack)->prev = last;
+
+	*stack = (*stack)->next; /* update the stack to pop off top node */
+	last->next->next = NULL; /* discontinue the list after the newly added node */
+}
+
