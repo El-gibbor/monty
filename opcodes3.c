@@ -47,3 +47,14 @@ void pchar(stack_t **stack, unsigned int line_number)
 	printf("%c\n", (*stack)->n);
 }
 
+
+void pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *curr_node = *stack;
+
+	while (curr_node != NULL && curr_node->n > 0 && curr_node->n <= 127)
+	{
+		printf("%c\n", (*stack)->n);
+		curr_node = curr_node->next;
+	}
+}

@@ -34,10 +34,9 @@ void push(stack_t **stack, unsigned int line_number)
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *curr_node;
+	stack_t *curr_node = *stack;
 	(void)line_number; /* Unused variable */
 
-	curr_node = *stack;
 	while (curr_node != NULL)
 	{
 		printf("%d\n", curr_node->n);
