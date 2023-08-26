@@ -43,7 +43,8 @@ int execute_instruction(stack_t **stack, instruction_t *instruction)
 	char *opcode;
 	static unsigned int line_number;
 
-	opcode = strtok(global.line, " \t\n");
+	line_number++;
+
 	if (opcode == NULL)
 		return (EXIT_SUCCESS);
 
