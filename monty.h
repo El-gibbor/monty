@@ -54,6 +54,7 @@ typedef struct instruction_s
 typedef struct global_variables
 {
 	char *line;
+  int mode;
 	FILE *fd;
 } global_var;
 
@@ -81,6 +82,8 @@ void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
+void stack(stack_t **stack, unsigned int line_number);
+void queue(stack_t **stack, unsigned int line_number);
 
 /* GLOBAL VARIABLES */
 extern global_var global;
