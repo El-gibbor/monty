@@ -47,10 +47,15 @@ void pchar(stack_t **stack, unsigned int line_number)
 	printf("%c\n", (*stack)->n);
 }
 
-
+/**
+ * pstr - prints the stack as a string.
+ * @stack: Pointer to the top of the stack.
+ * @line_number: Current line number in the file.
+ */
 void pstr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr_node = *stack;
+	(void)line_number; /* unused parameter */
 
 	while (curr_node != NULL && curr_node->n > 0 && curr_node->n <= 127)
 	{
